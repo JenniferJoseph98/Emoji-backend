@@ -10,8 +10,8 @@ emojiRoutes.get("/all", async (req, res) => {
 });
 emojiRoutes.get("/limit/:skip", async (req, res) => {
   const { skip } = req.params;
-  const skipVal = (skip - 1) * 12;
-  let getEmoji = await Emoji.find().skip(skipVal).limit(12);
+  const skipVal = (skip - 1) * 15;
+  let getEmoji = await Emoji.find().skip(skipVal).limit(15);
   res.send(getEmoji);
 });
 emojiRoutes.get("/", (req, res) => {
