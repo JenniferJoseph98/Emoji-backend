@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 mongoose.set("strictQuery", true);
+app.use(cors());
 
 mongoose.connect(process.env.DBURL, () => {
   console.log("Mongoose connected");
