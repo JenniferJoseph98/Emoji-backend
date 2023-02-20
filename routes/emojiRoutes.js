@@ -8,7 +8,16 @@ emojiRoutes.get("/all", async (req, res) => {
     res.send(e.message);
   }
 });
-
+emojiRoutes.get("/limit", async (req, res) => {
+  try {
+    const { skip } = req.body;
+    const skipVal = (skip - 1) * 30;
+    let getEmoji = await Emoji.find().skip(skipVal).limit(30);
+    res.send(getEmoji);
+  } catch (error) {
+    res.send(error);
+  }
+});
 emojiRoutes.get("/", (req, res) => {
   res.send("Emoji Routes Working");
 });
